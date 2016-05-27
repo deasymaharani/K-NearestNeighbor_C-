@@ -52,9 +52,6 @@ namespace KNN
             Console.WriteLine("Enter k : ");
             k = int.Parse(Console.ReadLine());
 
-            //double x = 8.5;
-            //Console.WriteLine(x);
-
             string[] linesTrain = System.IO.File.ReadAllLines(@"D:\DataAll.csv");
 
             foreach (string line in linesTrain)
@@ -71,29 +68,7 @@ namespace KNN
                 
                 sizeInput++;
             }
-
-            //string[] linesTest = System.IO.File.ReadAllLines(@"D:\dataTestSepeda.txt");
-
-            //foreach (string line in linesTest)
-            //{
-            //    string[] aftersplit = line.Split(',');
-
-            //    dataTest[sizeTest] = new List<double>();
-            //    foreach (string num in aftersplit)
-            //    {
-
-            //        inp = Convert.ToDouble(num.Replace('.', ','));
-            //        dataTest[sizeTest].Add(inp);
-            //    }
-
-            //    sizeTest++;
-            //}
-
-            //shuffleInput = shuffleArray(dataInput, sizeInput);
-
-            //Console.ReadKey();
             int dimension = dataInput[0].Count - 1;
-
 
             double sizeTrainD = Math.Ceiling(0.73 * sizeInput);
             sizeTrain = Convert.ToInt32(sizeTrainD);
@@ -112,42 +87,6 @@ namespace KNN
             }
             idxTest--;
 
-
-             //using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\cekAll.txt"))
-             //   {
-
-             //       for (int i = 0; i < sizeInput; i++)
-             //       {
-             //           for (int j = 0; j < shuffleInput[i].Count; j++)
-             //           {
-             //               file.Write(shuffleInput[i][j] + " ");
-             //           }
-             //           file.WriteLine();
-             //       }
-             //   }
-
-            //using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"D:\cekTrainTest.txt"))
-            //{
-            //    file.WriteLine("Data Train");
-            //    for (int i = 0; i < sizeTrain; i++)
-            //    {
-            //        for (int j = 0; j < dataTrain[i].Count; j++)
-            //        {
-            //            file.Write(dataTrain[i][j] + " ");
-            //        }
-            //        file.WriteLine();
-            //    }
-
-            //    file.WriteLine("Data Test");
-            //    for (int i = 0; i < sizeTest; i++)
-            //    {
-            //        for (int j = 0; j < dataTest[i].Count; j++)
-            //        {
-            //            file.Write(dataTest[i][j] + " ");
-            //        }
-            //        file.WriteLine();
-            //    }
-            //}
 
             Classify knn = new Classify(dataTrain, dataTest, k, dimension, sizeTrain, sizeTest);
 
